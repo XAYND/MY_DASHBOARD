@@ -3,8 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <title>Dashboard IT Moderne</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    :root {
+      --bg-gradient: linear-gradient(135deg, #1e3a8a, #0f172a);
+      --sidebar-bg: #0f172a;
+      --card-bg: #1e293b;
+      --primary-color: #38bdf8;
+      --accent-color: #c084fc;
+      --text-color: #f8fafc;
+    }
     * {
       margin: 0;
       padding: 0;
@@ -12,9 +21,9 @@
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #0f172a, #1e293b);
-      color: white;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-color);
       display: flex;
       height: 100vh;
       overflow: hidden;
@@ -24,7 +33,7 @@
     /* Sidebar */
     .sidebar {
       width: 200px;
-      background: #111827;
+      background: var(--sidebar-bg);
       padding: 30px 20px;
       display: flex;
       flex-direction: column;
@@ -49,8 +58,8 @@
       position: absolute;
       top: 15px;
       left: 15px;
-      background: #8b5cf6;
-      color: #fff;
+      background: var(--accent-color);
+      color: var(--text-color);
       border: none;
       padding: 10px 12px;
       font-size: 1.2rem;
@@ -63,7 +72,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: #1f2937;
+      background: rgba(15, 23, 42, 0.9);
       padding: 15px 20px;
       margin-bottom: 20px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.4);
@@ -74,14 +83,14 @@
 
     .topbar h1 {
       font-size: 1.8rem;
-      color: #a78bfa;
+      color: var(--accent-color);
     }
 
     .topbar .search {
-      background: #111827;
+      background: var(--sidebar-bg);
       border: none;
       padding: 8px 10px;
-      color: #fff;
+      color: var(--text-color);
       border-radius: 5px;
       width: 180px;
     }
@@ -94,7 +103,7 @@
     }
 
     .stat-card {
-      background: #1e293b;
+      background: var(--card-bg);
       padding: 20px;
       border-radius: 15px;
       text-align: center;
@@ -103,35 +112,35 @@
 
     .stat-card h3 {
       font-size: 1rem;
-      color: #cbd5e1;
+      color: var(--text-color);
       margin-bottom: 10px;
     }
 
     .stat-card p {
       font-size: 2rem;
-      color: #8b5cf6;
+      color: var(--accent-color);
     }
 
     .section-title {
       font-size: 1.5rem;
       margin-bottom: 15px;
-      color: #a78bfa;
+      color: var(--accent-color);
     }
 
     .sidebar h2 {
       font-size: 1.4rem;
-      color: #8b5cf6;
+      color: var(--accent-color);
     }
 
     .sidebar a {
-      color: #cbd5e1;
+      color: var(--text-color);
       text-decoration: none;
       font-size: 1rem;
       transition: color 0.3s;
     }
 
     .sidebar a:hover {
-      color: #8b5cf6;
+      color: var(--primary-color);
     }
 
     /* Main content */
@@ -150,7 +159,7 @@
     }
 
     .card {
-      background: #1e293b;
+      background: var(--card-bg);
       border-radius: 15px;
       padding: 20px;
       text-align: center;
@@ -161,6 +170,7 @@
     .card:hover {
       transform: translateY(-10px);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      background: rgba(30, 41, 59, 0.8);
     }
 
     .card img {
@@ -171,6 +181,7 @@
     .card p {
       font-size: 1.1rem;
       margin-top: 10px;
+      color: var(--text-color);
     }
 
     @keyframes fadeIn {
