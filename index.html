@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard IT Moderne</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: white;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 220px;
+      background: #111827;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+      animation: slideIn 1s ease;
+    }
+
+    .sidebar h2 {
+      font-size: 1.4rem;
+      color: #8b5cf6;
+    }
+
+    .sidebar a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    .sidebar a:hover {
+      color: #8b5cf6;
+    }
+
+    /* Main content */
+    .main {
+      flex: 1;
+      padding: 40px;
+      overflow-y: auto;
+      animation: fadeIn 1.2s ease;
+    }
+
+    .main h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: #a78bfa;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: #1e293b;
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .card img {
+      width: 60px;
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      font-size: 1.1rem;
+      margin-top: 10px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideIn {
+      from { transform: translateX(-100px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2>📂 Outils IT</h2>
+    <a href="#">vSphere</a>
+    <a href="#">Citrix DaaS</a>
+    <a href="#">TeamViewer</a>
+    <a href="#">Admin Microsoft</a>
+    <a href="#">Exchange</a>
+    <a href="#">Fichiers Excel</a>
+    <a href="#">Inventaire Access</a>
+    <a href="#">Arrivées & Départs</a>
+  </div>
+
+  <div class="main">
+    <h1>🚀 Mon Dashboard IT</h1>
+    <div class="grid">
+      <div class="card">
+        <img src="https://img.icons8.com/ios-filled/100/vmware.png" alt="vSphere" />
+        <p>vSphere</p>
+      </div>
+      <div class="card">
+        <img src="https://img.icons8.com/ios-filled/100/cloud.png" alt="Citrix" />
+        <p>Citrix DaaS</p>
+      </div>
+      <div class="card">
+        <img src="https://img.icons8.com/ios-filled/100/teamviewer.png" alt="TeamViewer" />
+        <p>TeamViewer</p>
+      </div>
+      <div class="card">
+        <img src="https://img.icons8.com/ios-filled/100/admin-settings-male.png" alt="Admin Microsoft" />
+        <p>Microsoft Admin</p>
+      </div>
+      <div class="card">
+        <img src="https://img.icons8.com/ios-filled/100/ms-excel.png" alt="Excel" />
+        <p>Excel Réseau</p>
+      </div>
+      <div class="card">
+        <img src="https://img.icons8.com/ios-filled/100/database.png" alt="Inventaire" />
+        <p>Access Inventaire</p>
+      </div>
+      <div class="card">
+        <img src="https://img.icons8.com/ios-filled/100/combo-chart--v1.png" alt="Access 2" />
+        <p>Arrivées & Départs</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
