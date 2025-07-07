@@ -4,15 +4,17 @@
   <meta charset="UTF-8">
   <title>Dashboard IT Moderne</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     :root {
-      --bg-gradient: linear-gradient(135deg, #1e3a8a, #0f172a);
-      --sidebar-bg: #0f172a;
-      --card-bg: #1e293b;
-      --primary-color: #38bdf8;
-      --accent-color: #c084fc;
-      --text-color: #f8fafc;
+      --bg-gradient: radial-gradient(circle at top left, #262626, #0d0d0d);
+      --sidebar-bg: rgba(20, 20, 20, 0.85);
+      --card-bg: #1e1e1e;
+      --primary-color: #00ffd5;
+      --accent-color: #ff7e00;
+      --text-color: #e0e0e0;
+      --border-color: rgba(255, 255, 255, 0.1);
     }
     * {
       margin: 0;
@@ -21,7 +23,7 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Inter', 'Orbitron', sans-serif;
       background: var(--bg-gradient);
       color: var(--text-color);
       display: flex;
@@ -30,9 +32,17 @@
       position: relative;
     }
 
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.05), transparent 60%);
+    }
+
     /* Sidebar */
     .sidebar {
-      width: 200px;
+      width: 220px;
       background: var(--sidebar-bg);
       padding: 30px 20px;
       display: flex;
@@ -42,6 +52,8 @@
       animation: slideIn 1s ease;
       transition: width 0.3s, padding 0.3s;
       overflow: hidden;
+      border-right: 1px solid var(--border-color);
+      backdrop-filter: blur(6px);
     }
 
     .sidebar.collapsed {
@@ -63,35 +75,40 @@
       border: none;
       padding: 10px 12px;
       font-size: 1.2rem;
-      border-radius: 5px;
+      border-radius: 4px;
       cursor: pointer;
       z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
     }
 
     .topbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(10, 10, 10, 0.6);
       padding: 15px 20px;
       margin-bottom: 20px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.4);
       position: sticky;
       top: 0;
       z-index: 500;
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-color);
     }
 
     .topbar h1 {
       font-size: 1.8rem;
       color: var(--accent-color);
+      font-family: 'Orbitron', sans-serif;
+      letter-spacing: 1px;
     }
 
     .topbar .search {
-      background: var(--sidebar-bg);
-      border: none;
+      background: rgba(30, 30, 30, 0.8);
+      border: 1px solid var(--border-color);
       padding: 8px 10px;
       color: var(--text-color);
-      border-radius: 5px;
+      border-radius: 4px;
       width: 180px;
     }
 
@@ -105,42 +122,50 @@
     .stat-card {
       background: var(--card-bg);
       padding: 20px;
-      border-radius: 15px;
+      border-radius: 12px;
       text-align: center;
       box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      border: 1px solid var(--border-color);
     }
 
     .stat-card h3 {
       font-size: 1rem;
       color: var(--text-color);
       margin-bottom: 10px;
+      font-family: 'Orbitron', sans-serif;
     }
 
     .stat-card p {
       font-size: 2rem;
       color: var(--accent-color);
+      font-family: 'Orbitron', sans-serif;
     }
 
     .section-title {
       font-size: 1.5rem;
       margin-bottom: 15px;
       color: var(--accent-color);
+      font-family: 'Orbitron', sans-serif;
     }
 
     .sidebar h2 {
       font-size: 1.4rem;
       color: var(--accent-color);
+      font-family: 'Orbitron', sans-serif;
     }
 
     .sidebar a {
       color: var(--text-color);
       text-decoration: none;
       font-size: 1rem;
-      transition: color 0.3s;
+      transition: color 0.3s, border-left 0.3s;
+      border-left: 3px solid transparent;
+      padding-left: 10px;
     }
 
     .sidebar a:hover {
       color: var(--primary-color);
+      border-left: 3px solid var(--primary-color);
     }
 
     /* Main content */
@@ -149,6 +174,8 @@
       padding: 20px;
       overflow-y: auto;
       animation: fadeIn 1.2s ease;
+      backdrop-filter: blur(4px);
+      border-left: 1px solid var(--border-color);
     }
 
 
@@ -160,11 +187,12 @@
 
     .card {
       background: var(--card-bg);
-      border-radius: 15px;
+      border-radius: 12px;
       padding: 20px;
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s;
       cursor: pointer;
+      border: 1px solid var(--border-color);
     }
 
     .card:hover {
@@ -182,6 +210,7 @@
       font-size: 1.1rem;
       margin-top: 10px;
       color: var(--text-color);
+      font-family: 'Orbitron', sans-serif;
     }
 
     @keyframes fadeIn {
@@ -309,5 +338,5 @@
     });
   </script>
 
-</body>
-</html>
+  </body>
+  </html>
