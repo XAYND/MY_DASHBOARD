@@ -18,6 +18,7 @@
       display: flex;
       height: 100vh;
       overflow: hidden;
+      position: relative;
     }
 
     /* Sidebar */
@@ -30,6 +31,32 @@
       gap: 30px;
       box-shadow: 2px 0 10px rgba(0,0,0,0.3);
       animation: slideIn 1s ease;
+      transition: width 0.3s, padding 0.3s;
+      overflow: hidden;
+    }
+
+    .sidebar.collapsed {
+      width: 0;
+      padding: 30px 0;
+    }
+
+    .sidebar.collapsed h2,
+    .sidebar.collapsed a {
+      display: none;
+    }
+
+    .toggle-btn {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: #8b5cf6;
+      color: #fff;
+      border: none;
+      padding: 10px 12px;
+      font-size: 1.2rem;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1000;
     }
 
     .sidebar h2 {
@@ -101,10 +128,44 @@
       from { transform: translateX(-100px); opacity: 0; }
       to { transform: translateX(0); opacity: 1; }
     }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 180px;
+        padding: 20px 15px;
+      }
+
+      .main {
+        padding: 20px;
+      }
+
+      .grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      }
+    }
+
+    @media (max-width: 480px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        z-index: 100;
+      }
+
+      .sidebar.collapsed {
+        width: 180px;
+      }
+    }
   </style>
 </head>
 <body>
 
+  <button id="sidebarToggle" class="toggle-btn">☰</button>
   <div class="sidebar">
     <h2>📂 Outils IT</h2>
     <a href="#">vSphere</a>
@@ -150,6 +211,20 @@
       </div>
     </div>
   </div>
+
+  <script>
+    const toggleBtn = document.getElementById('sidebarToggle');
+    const sidebar = document.querySelector('.sidebar');
+
+    function toggleSidebar(e) {
+      e.preventDefault();
+      sidebar.classList.toggle('collapsed');
+    }
+
+    ['click', 'touchstart'].forEach(evt => {
+      toggleBtn.addEventListener(evt, toggleSidebar);
+    });
+  </script>
 
 </body>
 </html>
